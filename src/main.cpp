@@ -6,9 +6,8 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    CLI::App app{std::string(EXECUTABLE_NAME) + " compiler - version " + EXECUTABLE_VERSION, EXECUTABLE_NAME};
-
-    app.add_flag("-v,--version", [](std::int64_t i){cout << EXECUTABLE_VERSION << endl;}, "Print version information");
+    CLI::App app{string(EXECUTABLE_NAME) + " compiler - version " + EXECUTABLE_VERSION, EXECUTABLE_NAME};
+    app.set_version_flag("-v,--version", [](){ return EXECUTABLE_VERSION; });
 
     if (argc <= 1)
         return app.exit(CLI::CallForHelp());
