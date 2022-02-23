@@ -4,6 +4,8 @@
     "dependencies": [
         "magic-enum",
         "nlohmann-json",
-        "cli11"
+        "cli11",
+        "sqlite3",
+        "sqlite-orm"
     ]
 }
