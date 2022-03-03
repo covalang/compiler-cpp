@@ -13,7 +13,10 @@ add_compile_definitions(EXECUTABLE_VERSION="${PROJECT_VERSION}")
 cmake_minimum_required(VERSION 3.21)
 project(${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 20)
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    src/lexer/lexer.cpp
+)
 
 # All the CMake targets provided by vcpkg
 find_package(magic_enum CONFIG REQUIRED)

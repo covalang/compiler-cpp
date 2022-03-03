@@ -16,5 +16,8 @@ jobs:
           submodules: recursive
       - uses: lukka/get-cmake@v3.21.2
       - uses: lukka/run-vcpkg@v10.1
-      - name: Run CMake
-        run: cmake . && cmake --build .
+      - run: src/lexer/install-re2c.ps1
+        shell: pwsh
+      - run: src/lexer/run-re2c.ps1
+        shell: pwsh
+      - run: cmake . && cmake --build .

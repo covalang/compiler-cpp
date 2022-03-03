@@ -1,3 +1,6 @@
 vcpkg*
 cmake-build*
 .idea
+
+# ignore re2c output files
+src/lexer/*[!r][!e].cpp
