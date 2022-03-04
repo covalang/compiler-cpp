@@ -1,4 +1,4 @@
-#include "lexer.hpp"
+#include "lex.hpp"
 
 /*!include:re2c "unicode.re.txt" */
 /*!re2c
