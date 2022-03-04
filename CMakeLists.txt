@@ -13,10 +13,10 @@ add_compile_definitions(EXECUTABLE_VERSION="${PROJECT_VERSION}")
 cmake_minimum_required(VERSION 3.21)
 project(${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 20)
+
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/lexer/lexer.cpp
-)
+    src/lexer/lex.cpp)
 
 # All the CMake targets provided by vcpkg
 find_package(magic_enum CONFIG REQUIRED)
@@ -30,5 +30,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     nlohmann_json::nlohmann_json
     CLI11::CLI11
     unofficial::sqlite3::sqlite3
-    sqlite_orm::sqlite_orm
-)
+    sqlite_orm::sqlite_orm)
+
+#add_custom_command(
+#    OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/src/lexer/lex.cpp
+#    PRE_BUILD
+#    COMMAND pwsh ${CMAKE_CURRENT_SOURCE_DIR}/src/lexer/run-re2c.ps1)
