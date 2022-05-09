@@ -3,6 +3,11 @@
 #include <nlohmann/json.hpp>
 #include <CLI/CLI.hpp>
 
+#include <antlr4-runtime/antlr4-runtime.h>
+#include "CovaLexer.h"
+#include "CovaParser.h"
+#include "CovaParserBaseListener.h"
+
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -17,5 +22,14 @@ int main(int argc, char** argv) {
     catch (CLI::ParseError const & e) {
         return app.exit(e);
     }
+
+//    antlr4::ANTLRFileStream input;
+//    input.loadFromFile(argv[1]);
+//    CovaLexer lexer(&input);
+//    antlr4::CommonTokenStream tokens(&lexer);
+//    CovaParser parser(&tokens);
+//    CovaParserBaseListener listener;
+//    parser.addParseListener(&listener);
+//    parser.compilationUnit();
     return 0;
 }

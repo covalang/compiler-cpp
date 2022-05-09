@@ -16,5 +16,7 @@ jobs:
           submodules: recursive
       - uses: lukka/get-cmake@v3.21.2
       - uses: lukka/run-vcpkg@v10.1
+      - name: Generate ANTLR files
+        run: pwsh -f src/grammar/generate.ps1
       - name: Run CMake
         run: cmake . && cmake --build .

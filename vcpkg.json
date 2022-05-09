@@ -6,6 +6,7 @@
         "nlohmann-json",
         "cli11",
         "sqlite3",
-        "sqlite-orm"
+        "sqlite-orm",
+        "antlr4"
     ]
 }
