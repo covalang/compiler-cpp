@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-#option(WITH_STATIC_CRT "Disable static CRT linking in ANTLR package" Off)
-#include(IfWindowsThenUseStaticMdTriplet.cmake)
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
+#set(CMAKE_TOOLCHAIN_FILE ${CMAKE_BINARY_DIR}/conan_toolchain.cmake CACHE STRING "Conan toolchain file")
 
 # Read the project name and version from vcpkg.json
 file(READ ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg.json VCPKG_JSON_STRING)
@@ -21,6 +19,10 @@ endif()
 # Normal CMake stuff
 project(${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 20)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)  # Includes the contents of the conanbuildinfo.cmake file.
+conan_basic_setup()  # Prepares the CMakeList.txt for Conan.
+
 
 file(GLOB ANTLR_GENERATED_SOURCE_FILES src/grammar/generated/*.cpp)
 add_executable(${PROJECT_NAME} src/main.cpp ${ANTLR_GENERATED_SOURCE_FILES})

@@ -1,0 +1,10 @@
+[requires]
+magic_enum/0.8.0
+nlohmann_json/3.10.5
+cli11/2.2.0
+sqlite3/3.38.5
+sqlite_orm/1.7.1
+
+[generators]
+CMakeDeps
+CMakeToolchain
