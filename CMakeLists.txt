@@ -14,9 +14,9 @@ add_compile_definitions(EXECUTABLE_NAME="${PROJECT_NAME}")
 add_compile_definitions(EXECUTABLE_VERSION="${PROJECT_VERSION}")
 
 # MSVC
-if(POLICY CMP0091)
-    cmake_policy(SET CMP0091 NEW) # Enables use of MSVC_RUNTIME_LIBRARY
-endif()
+#if(POLICY CMP0091)
+#    cmake_policy(SET CMP0091 NEW) # Enables use of MSVC_RUNTIME_LIBRARY
+#endif()
 
 # Normal CMake stuff
 project(${PROJECT_NAME})
@@ -27,7 +27,7 @@ add_executable(${PROJECT_NAME} src/main.cpp ${ANTLR_GENERATED_SOURCE_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC src/grammar/generated)
 
 # MSVC
-set_property(TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+#set_property(TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 # All the CMake targets provided by vcpkg
 find_package(magic_enum CONFIG REQUIRED)
@@ -40,11 +40,11 @@ find_package(antlr4-runtime)
 target_include_directories(${PROJECT_NAME} PUBLIC ${ANTLR4_INCLUDE_DIR})
 
 # MSVC
-if(VCPKG_TARGET_TRIPLET MATCHES "windows$")
-    set(ANTLR_TARGET_LINK_LIBRARY antlr4_shared)
-else()
-    set(ANTLR_TARGET_LINK_LIBRARY antlr4_static)
-endif()
+#if(VCPKG_TARGET_TRIPLET MATCHES "windows$")
+#    set(ANTLR_TARGET_LINK_LIBRARY antlr4_shared)
+#else()
+#    set(ANTLR_TARGET_LINK_LIBRARY antlr4_static)
+#endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
         magic_enum::magic_enum
