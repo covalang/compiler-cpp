@@ -52,4 +52,4 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         CLI11::CLI11
         unofficial::sqlite3::sqlite3
         sqlite_orm::sqlite_orm
-        ${ANTLR_TARGET_LINK_LIBRARY})
+		antlr4_static)
