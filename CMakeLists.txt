@@ -37,6 +37,8 @@ find_package(unofficial-sqlite3 CONFIG REQUIRED)
 find_package(SqliteOrm CONFIG REQUIRED)
 find_package(antlr4-runtime)
 
+add_compile_definitions("ANTLR4CPP_STATIC")
+
 target_include_directories(${PROJECT_NAME} PUBLIC ${ANTLR4_INCLUDE_DIR})
 
 # MSVC
